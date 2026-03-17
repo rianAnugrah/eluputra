@@ -1,0 +1,59 @@
+---
+const linkedinUrl = "https://www.linkedin.com/in/evanluputra/";
+const mailUrl = "mailto:evanluputra@gmail.com";
+---
+
+<footer id="contact" class="bg-[#f6f6f6] px-5 sm:px-10 lg:px-20 py-8 lg:py-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 lg:gap-0 py-4">
+
+      <!-- Nav links -->
+      <div class="flex flex-wrap gap-4 sm:gap-6 font-normal text-sm text-[#020202]">
+        <a href="#projects" class="hover:text-primary transition-colors link-underline">Projects</a>
+        <a href="#about" class="hover:text-primary transition-colors link-underline">About</a>
+        <a href="#services" class="hover:text-primary transition-colors link-underline">Design Process</a>
+        <a href="#resume" class="hover:text-primary transition-colors link-underline">Resume</a>
+      </div>
+
+      <!-- Contact -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <p class="font-normal text-sm sm:text-base text-[rgba(2,2,2,0.9)] text-left sm:text-right leading-normal">
+          Talk about design or just want to say hello?<br />Please reach out!
+        </p>
+        <div class="flex items-center gap-3">
+          <!-- LinkedIn -->
+          <a
+            href={linkedinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            class="social-btn w-10 h-10 border border-primary rounded-full flex items-center justify-center hover:bg-primary transition-colors group"
+          >
+            <img
+              src="https://www.figma.com/api/mcp/asset/b695a165-c715-4948-8e73-553c83d1f696"
+              alt="LinkedIn"
+              class="w-[18px] h-[18px] object-contain group-hover:brightness-0 group-hover:invert transition-all duration-200"
+            />
+          </a>
+          <!-- Email -->
+          <a
+            href={mailUrl}
+            aria-label="Email"
+            class="social-btn w-10 h-10 border border-primary rounded-full flex items-center justify-center hover:bg-primary transition-colors group"
+          >
+            <img
+              src="https://www.figma.com/api/mcp/asset/b9480121-2907-4dc6-89d6-ab243246a63b"
+              alt="Email"
+              class="w-[18px] h-[18px] object-contain group-hover:brightness-0 group-hover:invert transition-all duration-200"
+            />
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="border-t border-gray-200 mt-4 pt-4">
+      <p class="text-xs text-gray-400 text-center">© {new Date().getFullYear()} Evan Luputra. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

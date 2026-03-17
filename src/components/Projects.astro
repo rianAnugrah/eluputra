@@ -1,0 +1,150 @@
+---
+const projects = [
+  {
+    title: "Native Photo Gallery",
+    role: "Senior UX Designer @ Expedia",
+    description: "Redesigned the entire flow of Gallery of native photo of lodging and successfully increased the",
+    highlight: "interaction rate by 8%",
+    descriptionEnd: ".",
+    bgGradient: "linear-gradient(119deg, #34495e 6.78%, #2c3e50 87.8%)",
+    images: [
+      { src: "https://www.figma.com/api/mcp/asset/aaf85d7f-102a-4249-8b12-b1c4c89486ca", alt: "Native Photo Gallery image 1" },
+      { src: "https://www.figma.com/api/mcp/asset/049872f4-5f4f-4c04-a13f-60e89113a0bf", alt: "Native Photo Gallery image 2" },
+      { src: "https://www.figma.com/api/mcp/asset/3d7bc834-2179-4949-8ae3-9086fbcaed16", alt: "Native Photo Gallery image 3" },
+      { src: "https://www.figma.com/api/mcp/asset/11712b10-d455-4c28-8820-a5012c5d7371", alt: "Native Photo Gallery image 4" },
+    ],
+    imageLayout: "gallery",
+  },
+  {
+    title: "Design Systems in Expedia",
+    role: "Senior UX Designer @ Expedia",
+    description: "Generated design system for three teams across Expedia Group within three years and established the governance around it.",
+    highlight: null,
+    descriptionEnd: null,
+    bgGradient: "linear-gradient(119deg, #34495e 6.78%, #2c3e50 87.8%)",
+    images: [
+      { src: "https://www.figma.com/api/mcp/asset/c6df84b3-e3de-4bb0-9922-528ad95bf6a3", alt: "Design System image 1" },
+      { src: "https://www.figma.com/api/mcp/asset/7ec1da3f-71f9-4168-9616-2bb8a647774a", alt: "Design System image 2" },
+      { src: "https://www.figma.com/api/mcp/asset/315ba867-6f07-4b8b-a452-59d6c9616b6d", alt: "Design System image 3" },
+    ],
+    imageLayout: "overlap",
+  },
+  {
+    title: "Media Solution Ads Project",
+    role: "Senior UX Designer @ Expedia",
+    description: "Redesigned the Expedia ads design and earned the CTR increase and revenue growth of approximately",
+    highlight: "US$8.5 million",
+    descriptionEnd: ".",
+    bgGradient: "linear-gradient(119deg, #34495e 6.78%, #2c3e50 87.8%)",
+    images: [
+      { src: "https://www.figma.com/api/mcp/asset/a5d8dece-c993-45c2-815a-3203f504612b", alt: "Media Solution Ads image 1" },
+      { src: "https://www.figma.com/api/mcp/asset/0e61962b-596b-4972-846c-789a7ef22962", alt: "Media Solution Ads image 2" },
+    ],
+    imageLayout: "ads",
+  },
+];
+---
+
+<section id="projects" class="px-5 sm:px-10 lg:px-[80px] py-12 lg:py-16">
+  <div class="max-w-7xl mx-auto flex flex-col gap-16 lg:gap-24">
+    {projects.map((project, i) => (
+      <div class="flex flex-col gap-6 lg:gap-8">
+        <!-- Project card image area -->
+        <div
+          class="w-full rounded-xl overflow-hidden relative transition-shadow duration-300 hover:shadow-2xl"
+          style={{ background: project.bgGradient, minHeight: '300px' }}
+        >
+          {project.imageLayout === 'gallery' && (
+            <div class="flex flex-col sm:flex-row gap-3 p-4 sm:p-6 lg:p-10 h-full min-h-[300px] sm:min-h-[420px] lg:min-h-[500px]">
+              {project.images.map((img, idx) => (
+                <div
+                  class={`flex-1 rounded-xl overflow-hidden project-img-wrap ${idx % 2 === 0 ? 'sm:mt-0' : 'sm:mt-8 lg:mt-12'}`}
+                  style={{ minHeight: '200px' }}
+                >
+                  <div class="img-skeleton w-full h-full absolute inset-0 rounded-xl" aria-hidden="true"></div>
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    class="img-fade w-full h-full object-cover rounded-xl"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+          {project.imageLayout === 'overlap' && (
+            <div class="relative p-4 sm:p-6 lg:p-8 min-h-[320px] sm:min-h-[500px] lg:min-h-[600px]">
+              {project.images[0] && (
+                <div class="absolute left-[5%] sm:left-[8%] top-[5%] sm:top-[8%] w-[55%] sm:w-[42%] h-[70%] sm:h-[75%] rounded-xl overflow-hidden shadow-lg project-img-wrap">
+                  <div class="img-skeleton absolute inset-0 rounded-xl" aria-hidden="true"></div>
+                  <img src={project.images[0].src} alt={project.images[0].alt} class="img-fade w-full h-full object-cover" loading="lazy" />
+                </div>
+              )}
+              {project.images[1] && (
+                <div class="absolute right-[5%] sm:right-[8%] top-[5%] w-[55%] sm:w-[42%] h-[70%] sm:h-[68%] rounded-xl overflow-hidden shadow-lg project-img-wrap">
+                  <div class="img-skeleton absolute inset-0 rounded-xl" aria-hidden="true"></div>
+                  <img src={project.images[1].src} alt={project.images[1].alt} class="img-fade w-full h-full object-cover" loading="lazy" />
+                </div>
+              )}
+              {project.images[2] && (
+                <div class="absolute right-[5%] sm:right-[8%] bottom-[5%] w-[45%] sm:w-[38%] h-[30%] sm:h-[32%] rounded-xl overflow-hidden shadow-lg project-img-wrap">
+                  <div class="img-skeleton absolute inset-0 rounded-xl" aria-hidden="true"></div>
+                  <img src={project.images[2].src} alt={project.images[2].alt} class="img-fade w-full h-full object-cover" loading="lazy" />
+                </div>
+              )}
+            </div>
+          )}
+          {project.imageLayout === 'ads' && (
+            <div class="relative p-4 sm:p-6 lg:p-8 min-h-[300px] sm:min-h-[480px] lg:min-h-[560px]">
+              {project.images[1] && (
+                <div class="absolute left-0 top-[15%] sm:top-[20%] w-[65%] sm:w-[57%] h-[65%] sm:h-[70%] overflow-hidden rounded-r-xl shadow-xl project-img-wrap">
+                  <div class="img-skeleton absolute inset-0" aria-hidden="true"></div>
+                  <img src={project.images[1].src} alt={project.images[1].alt} class="img-fade w-full h-full object-cover" loading="lazy" />
+                </div>
+              )}
+              {project.images[0] && (
+                <div class="absolute right-[2%] sm:right-[4%] top-[5%] w-[55%] sm:w-[52%] h-[65%] sm:h-[68%] overflow-hidden rounded-xl shadow-xl project-img-wrap">
+                  <div class="img-skeleton absolute inset-0 rounded-xl" aria-hidden="true"></div>
+                  <img src={project.images[0].src} alt={project.images[0].alt} class="img-fade w-full h-full object-cover" loading="lazy" />
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+
+        <!-- Project info -->
+        <div class={`flex flex-col lg:flex-row gap-4 lg:gap-0 ${i % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>
+          <div class="flex flex-col gap-1 lg:w-1/2">
+            <h2 class="font-bold text-xl lg:text-2xl text-[#020202] leading-tight">{project.title}</h2>
+            <p class="font-semibold text-base text-primary">{project.role}</p>
+          </div>
+          <p class="font-normal text-base text-[#020202] leading-relaxed lg:w-1/2">
+            {project.description}
+            {project.highlight && <strong class="font-semibold"> {project.highlight}</strong>}
+            {project.descriptionEnd}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<script>
+  // Fade-in images on load, hide skeleton after
+  document.querySelectorAll('.img-fade').forEach((img) => {
+    const el = img as HTMLImageElement;
+    const skeleton = el.previousElementSibling as HTMLElement | null;
+
+    const onLoad = () => {
+      el.classList.add('loaded');
+      if (skeleton) skeleton.style.display = 'none';
+    };
+
+    if (el.complete && el.naturalWidth > 0) {
+      onLoad();
+    } else {
+      el.addEventListener('load', onLoad);
+      el.addEventListener('error', onLoad); // hide skeleton even on error
+    }
+  });
+</script>

@@ -1,0 +1,57 @@
+---
+const clients = [
+  { src: "https://www.figma.com/api/mcp/asset/2352939a-701d-4105-904c-ee972bc382c5", alt: "Expedia", width: 120 },
+  { src: "https://www.figma.com/api/mcp/asset/93da5fb4-9629-4644-9765-66c21c2a90a6", alt: "Wix", width: 60 },
+  { src: "https://www.figma.com/api/mcp/asset/c522adfb-0ff6-46b9-bf27-b6d84f8913d5", alt: "CD", width: 50 },
+  { src: "https://www.figma.com/api/mcp/asset/992b7ed1-189e-4b68-8522-b32465e3ea48", alt: "LugNot", width: 100 },
+  { src: "https://www.figma.com/api/mcp/asset/4c8cad16-69bb-4e97-99bd-d3739e4d786d", alt: "ZAKKI", width: 120 },
+  { src: "https://www.figma.com/api/mcp/asset/4fd11bda-5aac-45de-895d-75788c725539", alt: "CrowdDoing", width: 55 },
+];
+---
+
+<section class="bg-white px-5 sm:px-10 lg:px-20 py-12 lg:py-16">
+  <div class="max-w-7xl mx-auto">
+    <p class="font-bold text-[#505050] text-sm sm:text-base lg:text-xl text-center tracking-widest mb-8 lg:mb-10">
+      TRUSTED BY CLIENTS LIKE
+    </p>
+    <div class="flex flex-wrap justify-center items-center gap-8 sm:gap-10 lg:gap-16">
+      {clients.map(client => (
+        <div class="flex items-center justify-center logo-hover opacity-80">
+          <div class="relative">
+            <div
+              class="img-skeleton absolute inset-0"
+              style={{ width: `${client.width}px`, height: '40px' }}
+              aria-hidden="true"
+            ></div>
+            <img
+              src={client.src}
+              alt={client.alt}
+              class="img-fade object-contain max-h-16 w-auto"
+              style={{ maxWidth: `${client.width}px` }}
+              loading="lazy"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.img-fade').forEach((img) => {
+    const el = img as HTMLImageElement;
+    const skeleton = el.previousElementSibling as HTMLElement | null;
+
+    const onLoad = () => {
+      el.classList.add('loaded');
+      if (skeleton) skeleton.style.display = 'none';
+    };
+
+    if (el.complete && el.naturalWidth > 0) {
+      onLoad();
+    } else {
+      el.addEventListener('load', onLoad);
+      el.addEventListener('error', onLoad);
+    }
+  });
+</script>

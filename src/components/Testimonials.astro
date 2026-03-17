@@ -1,0 +1,80 @@
+---
+const testimonials = [
+  {
+    text: "Evan has developed a keen sense of information architecture, visual communication aesthetics, and empathetic user-centered research capabilities in his roles with CrowdDoing.world.",
+    name: "Bobby Fishkin",
+    title: "Founder @ CrowdDoing.world",
+    avatar: "https://www.figma.com/api/mcp/asset/5c9bc1b5-1a9d-400e-98ac-58a816fee24b",
+  },
+  {
+    text: "His strong personality won him the respect of the technical team. He had the vision to see the benefits and the passion to turn that into a competitive advantage for ZAKKI and CrowdDoing.",
+    name: "Beatrix Cendana",
+    title: "UX Designer and Project Manager at ZAKKI",
+    avatar: "https://www.figma.com/api/mcp/asset/e0ed81c0-9a4d-4ada-9bc8-547d8e498a14",
+  },
+  {
+    text: "We worked together on ZAKKI website design and UX hackathon. In both projects, Evan showed passion and determination. He is a great problem solver and collaborator.",
+    name: "Aga Matyja",
+    title: "Product Designer at Ori Industries",
+    avatar: "https://www.figma.com/api/mcp/asset/5add5d57-17dd-45ef-b4c2-03fc087d9b65",
+  },
+  {
+    text: "Evan is a well-rounded young professional with strategic and analytical skills. Evan has adequate skills in programming, UI/UX design, and creatives arts (photography and film). Evan is a great team player who is always willing to help.",
+    name: "Tommy Nguyen",
+    title: "Product Manager at LugNot",
+    avatar: "https://www.figma.com/api/mcp/asset/e7701b66-6bff-42b0-a355-259f3663e0af",
+  },
+];
+---
+
+<section class="bg-white px-5 sm:px-10 lg:px-20 py-16 lg:py-20">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="font-bold text-[#020202] text-xl sm:text-2xl text-center mb-10 lg:mb-14">
+      What do they say about me and my work?
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-14">
+      {testimonials.map(t => (
+        <div class="flex flex-col gap-4 p-5 rounded-xl card-scale cursor-default hover:bg-gray-50 transition-colors duration-200">
+          <p class="font-normal text-[#020202] text-sm sm:text-base leading-relaxed">
+            {t.text}
+          </p>
+          <div class="flex items-center gap-3 mt-2">
+            <div class="relative w-12 h-12 sm:w-[54px] sm:h-[54px] shrink-0">
+              <div class="img-skeleton absolute inset-0 rounded-full" aria-hidden="true"></div>
+              <img
+                src={t.avatar}
+                alt={t.name}
+                class="img-fade w-full h-full rounded-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <p class="font-bold text-[#020202] text-sm sm:text-base leading-tight">{t.name}</p>
+              <p class="font-medium text-primary text-xs sm:text-sm leading-normal mt-1">{t.title}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.img-fade').forEach((img) => {
+    const el = img as HTMLImageElement;
+    const skeleton = el.previousElementSibling as HTMLElement | null;
+
+    const onLoad = () => {
+      el.classList.add('loaded');
+      if (skeleton) skeleton.style.display = 'none';
+    };
+
+    if (el.complete && el.naturalWidth > 0) {
+      onLoad();
+    } else {
+      el.addEventListener('load', onLoad);
+      el.addEventListener('error', onLoad);
+    }
+  });
+</script>
