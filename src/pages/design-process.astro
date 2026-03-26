@@ -1,0 +1,166 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const steps = [
+  {
+    title: "Discover",
+    icon: "🧩",
+    description: "In this stage, I try to get an overview and I limit my research scope before I dig deeper into the research. After knowing what goals or project scope that I would like to solve, I make assumptions based on the experience that I have done. Then, I prove it by gaining more information from the user research and also learn from strategy and scope of the project in terms of business, market, and user goals.",
+    boldWords: ["user research"],
+    tools: ["Heuristic evaluation", "Analytics Review", "Competitor Analysis", "User Surveys", "User Interviews", "User Testing", "User Journeys"],
+  },
+  {
+    title: "Define",
+    icon: "👤",
+    description: "I turn the idea from the discovery phase into user insights and pain points. This stage ensures that 'why' question is understood, which can highlight what users' needs and motivations. Then, I summarize the findings and share it with the team. These findings can guide my team to focus on a specific need.",
+    boldWords: ["highlight what users' needs and motivations"],
+    tools: ["Affinity Mapping", "User Personas", "Story Boards", "Customer Journey"],
+  },
+  {
+    title: "Design / Develop",
+    icon: "✏️",
+    description: "The most challenging part is iterative design process because I need to identify the user, business, and market needs. The design phase puts the interactive wireframes and prototypes in front of the stakeholders and users to get feedback.",
+    boldWords: [],
+    tools: ["Paper prototypes", "Wireframes", "A/B Testing", "Mood Boards", "High Fidelity Prototypes"],
+  },
+  {
+    title: "Deliver",
+    icon: "💻",
+    description: "At this stage, I work with developers to reach the next target, the launch phase!",
+    boldWords: [],
+    tools: ["Zeplin", "Figma", "Sketch"],
+  },
+];
+---
+
+<Layout title="Design Process – Evan Luputra">
+  <Navbar />
+
+  <main class="bg-white">
+
+    <!-- ── HERO ── -->
+    <section class="bg-[#f2f2f2] px-5 sm:px-10 lg:px-[120px] py-16 lg:py-20 text-center">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="font-bold text-[22px] sm:text-[26px] lg:text-[30px] text-[#020202] leading-snug mb-3">
+          I specialize in developing better UX/UI through user-centered design:
+        </h1>
+        <p class="italic font-semibold text-[18px] sm:text-[20px] text-[#020202]">
+          "A great design comes from the correct design process!"
+        </p>
+      </div>
+    </section>
+
+    <!-- ── INTRO TEXT ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-12 lg:py-16">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-base lg:text-[18px] text-[#020202] leading-relaxed">
+          Steve Job said, "You've got to start with the <strong>customer experience</strong> and <strong>work
+          backward</strong> to the <strong>technology</strong>." Instead of directly jumping to design and assuming
+          that it might work I follow a typical UX Design Process called <strong>Framework for
+          Innovation</strong> or updated version of <strong>Double Diamond Process.</strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- ── DOUBLE DIAMOND DIAGRAM ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-4 pb-16">
+      <div class="max-w-3xl mx-auto">
+        <!-- SVG Double Diamond -->
+        <div class="relative w-full flex justify-center">
+          <svg viewBox="0 0 600 380" class="w-full max-w-[560px]" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+            <!-- ENGAGEMENT label top -->
+            <text x="300" y="22" text-anchor="middle" font-family="Poppins, sans-serif" font-size="12" font-weight="700" fill="#5957d0" letter-spacing="1">ENGAGEMENT</text>
+
+            <!-- Engagement sub-labels -->
+            <text x="300" y="58" text-anchor="middle" font-family="Poppins, sans-serif" font-size="9" fill="#5957d0">User-centered design,</text>
+            <text x="300" y="70" text-anchor="middle" font-family="Poppins, sans-serif" font-size="9" fill="#5957d0">Communicate visually,</text>
+            <text x="300" y="82" text-anchor="middle" font-family="Poppins, sans-serif" font-size="9" fill="#5957d0">Collaborate &amp; Co-create,</text>
+            <text x="300" y="94" text-anchor="middle" font-family="Poppins, sans-serif" font-size="9" fill="#5957d0">Iterate. Iterate. Iterate.</text>
+
+            <!-- Arc top -->
+            <path d="M 110 185 Q 300 40 490 185" stroke="#5957d0" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+
+            <!-- Left diamond -->
+            <polygon points="110,185 210,110 310,185 210,260" fill="#2d3561" opacity="0.92"/>
+            <!-- Right diamond -->
+            <polygon points="310,185 410,110 510,185 410,260" fill="#2d3561" opacity="0.92"/>
+
+            <!-- Lightbulb circle center -->
+            <circle cx="310" cy="185" r="18" fill="white" stroke="#5957d0" stroke-width="2"/>
+            <text x="310" y="191" text-anchor="middle" font-size="16">💡</text>
+
+            <!-- Corner labels -->
+            <text x="108" y="189" text-anchor="end" font-family="Poppins, sans-serif" font-size="9" fill="#555">Discover</text>
+            <text x="207" y="107" text-anchor="middle" font-family="Poppins, sans-serif" font-size="9" fill="#555">Define</text>
+            <text x="413" y="107" text-anchor="middle" font-family="Poppins, sans-serif" font-size="9" fill="#555">Develop</text>
+            <text x="514" y="189" text-anchor="start" font-family="Poppins, sans-serif" font-size="9" fill="#555">Deliver</text>
+
+            <!-- Inside diamond labels -->
+            <text x="210" y="192" text-anchor="middle" font-family="Poppins, sans-serif" font-size="8" fill="white">Research, Analyze, Synthesize</text>
+            <text x="410" y="192" text-anchor="middle" font-family="Poppins, sans-serif" font-size="8" fill="white">Prototype, Test, Refine</text>
+
+            <!-- CHALLENGE left label -->
+            <text x="18" y="188" text-anchor="middle" font-family="Poppins, sans-serif" font-size="9" font-weight="700" fill="#5957d0" transform="rotate(-90 18 188)">CHALLENGE</text>
+
+            <!-- OUTCOME right label -->
+            <text x="582" y="188" text-anchor="middle" font-family="Poppins, sans-serif" font-size="9" font-weight="700" fill="#5957d0" transform="rotate(90 582 188)">OUTCOME</text>
+
+            <!-- DEFINITIONS bottom center label -->
+            <text x="310" y="218" text-anchor="middle" font-family="Poppins, sans-serif" font-size="9" font-weight="700" fill="#5957d0">DEFINITIONS</text>
+
+            <!-- Arc bottom -->
+            <path d="M 110 185 Q 300 330 490 185" stroke="#5957d0" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+
+            <!-- Explore Shape Build label -->
+            <text x="300" y="310" text-anchor="middle" font-family="Poppins, sans-serif" font-size="9" fill="#5957d0">Explore. Shape. Build.</text>
+
+            <!-- LEADERSHIP label bottom -->
+            <text x="300" y="338" text-anchor="middle" font-family="Poppins, sans-serif" font-size="12" font-weight="700" fill="#5957d0" letter-spacing="1">LEADERSHIP</text>
+
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── BODY TEXT ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] pb-12">
+      <div class="max-w-3xl mx-auto space-y-4 text-base text-[#020202] leading-relaxed">
+        <p>
+          In every project I have done, I applied the design process and the key metrics
+          (<strong>engagement and leadership</strong>) as a way for me to <strong>understand the user's
+          environment and behaviors, get innovative answers.</strong>
+        </p>
+        <p>These are the steps that I follow:</p>
+      </div>
+    </section>
+
+    <!-- ── STEPS ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] pb-20">
+      <div class="max-w-3xl mx-auto space-y-16">
+        {steps.map((step, i) => (
+          <div class="flex flex-col sm:flex-row gap-8 items-start">
+            <!-- Icon -->
+            <div class={`shrink-0 w-[140px] h-[140px] rounded-2xl flex items-center justify-center text-5xl
+              ${i === 0 ? 'bg-[#dbeafe]' : i === 1 ? 'bg-[#ede9fe]' : i === 2 ? 'bg-[#e0f2fe]' : 'bg-[#f0fdf4]'}`}>
+              {step.icon}
+            </div>
+            <!-- Text -->
+            <div class="flex-1">
+              <h2 class="font-bold text-[20px] lg:text-[22px] text-[#020202] mb-3">{step.title}</h2>
+              <p class="text-base text-[#020202] leading-relaxed mb-4">{step.description}</p>
+              <p class="text-sm text-[#444] leading-relaxed">
+                {step.tools.join(" | ")}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>

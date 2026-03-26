@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="About – Evan Luputra">
+  <Navbar />
+
+  <main class="bg-white">
+
+    <!-- ── MEET EVAN ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] pt-14 pb-12 lg:pb-16">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="font-bold text-[36px] sm:text-[48px] lg:text-[56px] leading-tight text-[#020202] mb-3">
+          Meet <span class="text-primary">Evan Luputra.</span>
+        </h1>
+        <p class="font-semibold text-[18px] sm:text-[20px] lg:text-[22px] text-[#020202] mb-8">
+          Embrace the creativity with technical touch.
+        </p>
+        <div class="space-y-5 text-base lg:text-[17px] text-[#020202] leading-relaxed">
+          <p>
+            With a background in <strong>filmmaking</strong> and <strong>computer science</strong> from the University of Wellington, Evan envisions himself as a creator, inventor, and UX-minded professional. Equipped with 7 years of experience in <strong>prototyping, technical design, AI integration</strong>, and <strong>user-centered research</strong>, he is dedicated to bringing innovative ideas to life.
+          </p>
+          <p>
+            Evan primarily works with a diverse range of clients and Fortune 500 companies across industries such as travel, marketing, e-commerce, and esports. He is experienced in various mediums, including <strong>software and website design, advertising</strong>, and even <strong>developing a design system</strong> from scratch that is currently used by hundreds of UI designers at Expedia. You can find his work featured within Expedia's travel app and across their multi-platform advertising campaigns.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── KEEP CRAFTING ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-12 lg:py-16 border-t border-[#f0f0f0]">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-bold text-[28px] sm:text-[32px] lg:text-[36px] text-[#020202] mb-6">
+          Keep crafting and building...
+        </h2>
+        <p class="text-base lg:text-[17px] text-[#020202] leading-relaxed mb-10">
+          Even off the clock, his brain is basically a tab that never closes. When he isn't cheering for FC Barcelona or losing himself in watching F1 race, he's likely deep-diving into a new AI gaming project. You can usually find him leveling up his coding skills while sharing a massive pizza with his best friend.
+        </p>
+
+        <!-- Photos -->
+        <div class="grid grid-cols-2 gap-4 mb-4">
+          <div class="rounded-xl overflow-hidden bg-[#1a1a2e] aspect-[4/3]">
+            <!-- Replace src with actual photo -->
+            <div class="w-full h-full bg-gradient-to-br from-[#1a1a2e] to-[#3d3d6e] flex items-center justify-center">
+              <span class="text-white/30 text-sm text-center px-4">FC Barcelona match<br/>New York</span>
+            </div>
+          </div>
+          <div class="rounded-xl overflow-hidden bg-[#f0f0f0] aspect-[4/3]">
+            <!-- Replace src with actual photo -->
+            <div class="w-full h-full bg-gradient-to-br from-[#e8e8f8] to-[#c8c8e8] flex items-center justify-center">
+              <span class="text-[#555] text-sm text-center px-4">3D-printed Gengar<br/>figure</span>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4 mb-10">
+          <p class="text-xs text-[#666] leading-tight">
+            [Photos 1] Catching a Barcelona match in the heart of New York.
+          </p>
+          <p class="text-xs text-[#666] leading-tight">
+            [Photos 2] Front of the 3D printer bringing Gengar to life.
+          </p>
+        </div>
+
+        <p class="text-base lg:text-[17px] text-[#020202] leading-relaxed">
+          He's also a big fan of 3D printing and gaming. Whether he's navigating a digital world with a controller or crafting his own Marvel and Pokémon figures from scratch, he's always creating something cool.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── SKILLS / QUICK FACTS ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-12 lg:py-16 bg-[#f9f9f9]">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-bold text-[22px] lg:text-[26px] text-[#020202] mb-8">At a glance</h2>
+        <div class="grid sm:grid-cols-2 gap-6">
+          {[
+            { label: "Background", value: "Filmmaking + Computer Science, University of Wellington" },
+            { label: "Experience", value: "7+ years in UX Design & Technical Design" },
+            { label: "Specialties", value: "Prototyping, Design Systems, AI Integration, User Research" },
+            { label: "Industries", value: "Travel, Marketing, E-commerce, Esports" },
+            { label: "Currently", value: "Senior UX Designer @ Expedia · Co-founder @ Savicore" },
+            { label: "Interests", value: "FC Barcelona, F1, 3D printing, Gaming, Marvel & Pokémon" },
+          ].map((item) => (
+            <div class="border-l-2 border-primary pl-4">
+              <p class="text-xs font-bold text-primary uppercase tracking-wide mb-1">{item.label}</p>
+              <p class="text-sm text-[#020202] leading-snug">{item.value}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>
