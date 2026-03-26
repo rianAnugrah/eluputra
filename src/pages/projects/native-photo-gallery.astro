@@ -1,14 +1,457 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const heroImages = [
+  { src: "https://www.figma.com/api/mcp/asset/5a155eea-c920-462e-9a33-4b3ffc18ed0d", alt: "Gallery screen 1", offset: false },
+  { src: "https://www.figma.com/api/mcp/asset/645bc9d8-28b3-415f-8bfc-e5e569482127", alt: "Gallery screen 2", offset: true },
+  { src: "https://www.figma.com/api/mcp/asset/382417f1-2acb-47ee-b49f-9cf942252fc8", alt: "Gallery screen 3", offset: true },
+  { src: "https://www.figma.com/api/mcp/asset/60e8c291-20b8-4704-ba4f-c0d711d2fc6c", alt: "Gallery screen 4", offset: false },
+];
+
+const researchInsights = [
+  "There was unexpected pop-ups when images were clicked.",
+  "There was no quit (X) or back (←) icon to exit the full-screen mode.",
+  "Customers often want to view specific rooms like just the bedroom or bar only.",
+  "With the filter feature, users can narrow down their options.",
+  "Thumbnail or grid view feature would be added in iOS app.",
+  "The grid view is more efficient way to scan the entire property images.",
+];
+
+const variants = [
+  {
+    label: "Variant 1",
+    text: "The current design is the closest to what's currently live on Expedia's mobile web, with only a few grid view modifications. I moved the description and image count to a better position. The interaction pattern remains consistent with what's seen on the mobile web version.",
+  },
+  {
+    label: "Variant 2",
+    text: "We tried to understand: Does the grid view icon work for users? Do users understand that carousel dots indicate swipe functionality? Does a two-row grid view improve the experience?",
+  },
+  {
+    label: "Variant 3",
+    text: "We tried to explore: What happens if we change the interaction to the entire grid view directly? The only access to full-screen mode is from the grid view. Is it user-friendly to compel users to tilt their phones for a larger image view? Does the mixed grid system impact the user experience? Does the picture count format (e.g., 1/25) work better than the grid icon?",
+  },
+];
 ---
+
 <Layout title="Native Photo Gallery – Evan Luputra">
-  <div class="max-w-3xl mx-auto px-5 py-20">
-    <a href="/#projects" class="text-primary text-sm font-medium hover:underline">← Back to Projects</a>
-    <h1 class="font-bold text-4xl text-[#020202] mt-6 mb-2">Native Photo Gallery</h1>
-    <p class="text-primary font-semibold mb-6">Senior UX Designer @ Expedia</p>
-    <p class="text-base text-[#020202] leading-relaxed">
-      Redesigned the entire flow of Gallery of native photo of lodging and successfully increased the
-      <strong>interaction rate by 8%</strong>.
-    </p>
-  </div>
+  <Navbar />
+
+  <main class="bg-white">
+
+    <!-- Back -->
+    <div class="px-5 sm:px-10 lg:px-[120px] pt-10">
+      <a href="/#projects" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
+        ← Back to Projects
+      </a>
+    </div>
+
+    <!-- ── HERO ── -->
+    <section class="pt-10 pb-6 text-center">
+      <div class="max-w-3xl mx-auto px-5 sm:px-10">
+        <p class="text-sm font-semibold text-primary mb-3">Senior UX Designer @ Expedia</p>
+        <h1 class="font-bold text-[36px] sm:text-[52px] lg:text-[60px] leading-tight text-[#020202] mb-5">
+          Native photo gallery
+        </h1>
+        <p class="text-base sm:text-lg lg:text-[20px] leading-relaxed text-[#020202]">
+          Redesigned the entire flow of Gallery of native photo of lodging
+          (mobile app and mobile browser).
+        </p>
+      </div>
+
+      <!-- 4-col staggered phone screenshots -->
+      <div class="mt-10 px-5 sm:px-10 lg:px-[120px] max-w-5xl mx-auto">
+        <div class="hidden sm:flex gap-4 lg:gap-6 items-start justify-center">
+          {heroImages.map((img) => (
+            <div class={`flex-1 rounded-[15px] overflow-hidden shadow-lg ${img.offset ? 'mt-10' : 'mt-0'}`}>
+              <img src={img.src} alt={img.alt} class="w-full h-auto object-cover" loading="lazy" />
+            </div>
+          ))}
+        </div>
+        <div class="grid grid-cols-2 gap-4 sm:hidden">
+          {heroImages.map((img) => (
+            <div class="rounded-[15px] overflow-hidden shadow-lg">
+              <img src={img.src} alt={img.alt} class="w-full h-auto object-cover" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── UNDERSTAND THE PROBLEM ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-16 lg:py-20">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-primary font-bold text-[20px] mb-1">Lodging team</p>
+        <h2 class="font-bold text-[24px] lg:text-[28px] text-[#020202] mb-6">Understand the problem</h2>
+        <div class="space-y-4 text-[#020202] text-base lg:text-[20px] leading-relaxed">
+          <p>
+            Before booking a hotel via the app, we always want to view the property images. The challenging part was seeing a clear and realistic property representation. This influenced travelers' decisions on whether to finalize the booking.
+          </p>
+          <p>
+            I worked independently as designer for this project, except for the research phase. This was one of the priority projects in Expedia, and I was given the opportunity to lead and design this from start to finish. I worked with three different Project Managers because this is such an important component and impacted many POS (Point of Sale) and share the learning with the leadership team.
+          </p>
+        </div>
+        <div class="mt-8 p-6 bg-[#f2f2f2] rounded-2xl">
+          <p class="font-bold text-[#020202] text-base lg:text-[20px] mb-2">Based on my research findings:</p>
+          <p class="italic font-semibold text-[#020202] text-base lg:text-[20px] leading-relaxed">
+            On average, 44–48% of travelers interacted with the Photo Grid view on the Property Detail Page (PDP).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── RESEARCH FINDING (analytics) ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] pb-16 lg:pb-20">
+      <div class="max-w-5xl mx-auto flex flex-col sm:flex-row gap-6 items-center">
+        <div class="w-full sm:w-[200px] shrink-0 rounded-2xl overflow-hidden shadow-lg">
+          <img
+            src="https://www.figma.com/api/mcp/asset/4e1d08e3-ad2d-4d0d-a3d3-a900c03490a6"
+            alt="Expedia app – property detail page"
+            class="w-full h-auto object-cover"
+            loading="lazy"
+          />
+        </div>
+        <div class="flex-1 rounded-2xl overflow-hidden shadow-lg">
+          <img
+            src="https://www.figma.com/api/mcp/asset/8973af43-069f-4125-a8df-0daecfe97683"
+            alt="Native engagement analytics dashboard"
+            class="w-full h-auto object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ANDROID APP ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-16 lg:py-20 bg-[#f9f9f9]">
+      <div class="max-w-5xl mx-auto">
+        <div class="max-w-3xl mb-8">
+          <p class="text-primary font-bold text-[20px] mb-1">Android App</p>
+          <h2 class="font-bold text-[24px] lg:text-[28px] text-[#020202] mb-6">How did the user flow look like in Android app?</h2>
+          <p class="text-base lg:text-[20px] leading-relaxed text-[#020202]">
+            Users were directed to Grid/Thumbnail View after viewing the 6th image. There was no access to view the image in full-screen mode. How might we optimize the grid view? Were there particular aspects that could improve the user experience?
+          </p>
+        </div>
+        <!-- Reuse gallery screens to illustrate Android flow -->
+        <div class="flex gap-4 items-start">
+          <div class="flex-1 rounded-[15px] overflow-hidden shadow-lg">
+            <img src={heroImages[0].src} alt="Android – property detail page" class="w-full h-auto object-cover" loading="lazy" />
+            <p class="text-xs text-center text-[#666] py-2 bg-[#f2f2f2]">Property detail page</p>
+          </div>
+          <div class="text-2xl text-[#aaa] self-center">→</div>
+          <div class="flex-1 rounded-[15px] overflow-hidden shadow-lg mt-8">
+            <img src={heroImages[1].src} alt="Android – thumbnail view" class="w-full h-auto object-cover" loading="lazy" />
+            <p class="text-xs text-center text-[#666] py-2 bg-[#f2f2f2]">Thumbnail view</p>
+          </div>
+          <div class="text-2xl text-[#aaa] self-center">→</div>
+          <div class="flex-1 rounded-[15px] overflow-hidden shadow-lg">
+            <img src={heroImages[2].src} alt="Android – full gallery" class="w-full h-auto object-cover" loading="lazy" />
+            <p class="text-xs text-center text-[#666] py-2 bg-[#f2f2f2]">Full gallery</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── iOS APP ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-16 lg:py-20">
+      <div class="max-w-5xl mx-auto">
+        <div class="max-w-3xl mb-8">
+          <p class="text-primary font-bold text-[20px] mb-1">iOS App</p>
+          <h2 class="font-bold text-[24px] lg:text-[28px] text-[#020202] mb-6">How was the user flow structured in the iOS app?</h2>
+          <p class="text-base lg:text-[20px] leading-relaxed text-[#020202]">
+            The app neither had a grid view nor a swipe feature.
+          </p>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="flex-1 rounded-[15px] overflow-hidden shadow-lg">
+            <img src={heroImages[0].src} alt="iOS – tap on the picture" class="w-full h-auto object-cover" loading="lazy" />
+            <p class="text-xs text-center text-[#666] py-2 bg-[#f2f2f2]">Tap on the picture</p>
+          </div>
+          <div class="text-2xl text-[#aaa] self-center">→</div>
+          <div class="flex-1 rounded-[15px] overflow-hidden shadow-lg mt-8">
+            <img src={heroImages[3].src} alt="iOS – tap on the number icon" class="w-full h-auto object-cover" loading="lazy" />
+            <p class="text-xs text-center text-[#666] py-2 bg-[#f2f2f2]">Tap on the number icon</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── NDA NOTICE ── -->
+    <section class="mx-5 sm:mx-10 lg:mx-[120px] my-4">
+      <div class="bg-[#2c3e50] text-white rounded-2xl px-8 py-6 text-center">
+        <p class="text-base lg:text-[18px] font-medium leading-relaxed">
+          Due to the Non-Disclosure Agreement, I can't display complete research deck.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── RESEARCH PHASE ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-16 lg:py-20 bg-[#f9f9f9]">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-primary font-bold text-[20px] mb-1">Research phase</p>
+        <h2 class="font-bold text-[24px] lg:text-[28px] text-[#020202] mb-6">Collaborate with research team to identify the issues</h2>
+        <p class="text-base lg:text-[20px] leading-relaxed text-[#020202] mb-6">
+          Over the past two years, we collaborated with 2 researchers to conduct 10 research studies. These were key insights that we found:
+        </p>
+        <ul class="space-y-3">
+          {researchInsights.map((insight) => (
+            <li class="flex gap-3 text-base lg:text-[18px] text-[#020202] leading-relaxed">
+              <span class="mt-1 shrink-0 w-2 h-2 rounded-full bg-primary"></span>
+              <span>{insight}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="mt-10 p-5 bg-white rounded-2xl border border-[#e5e5e5] shadow-sm">
+          <p class="font-bold text-[#020202] text-base mb-2">Image number in the gallery</p>
+          <p class="text-sm lg:text-base text-[#020202] leading-relaxed">
+            Users understood that the number beneath the image gallery (e.g., 40+) indicated 40 additional photos would be available for viewing upon clicking.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── DISCOVERY PHASE ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-16 lg:py-20">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-primary font-bold text-[20px] mb-1">Discovery phase</p>
+        <h2 class="font-bold text-[24px] lg:text-[28px] text-[#020202] mb-6">Competitive analysis of 58 apps and mobile browsers</h2>
+        <p class="text-base lg:text-[20px] leading-relaxed text-[#020202] mb-4">We found that:</p>
+        <ul class="space-y-3 mb-10">
+          <li class="flex gap-3 text-base lg:text-[18px] text-[#020202] leading-relaxed">
+            <span class="mt-1 shrink-0 w-2 h-2 rounded-full bg-primary"></span>
+            <span>Most travel companies had similar native designs (common patterns) across all mobile devices.</span>
+          </li>
+          <li class="flex gap-3 text-base lg:text-[18px] text-[#020202] leading-relaxed">
+            <span class="mt-1 shrink-0 w-2 h-2 rounded-full bg-primary"></span>
+            <span>There were three gallery types that most companies used: mosaic, film strip view, and carousel.</span>
+          </li>
+        </ul>
+
+        <h3 class="font-bold text-[20px] text-[#020202] mb-2">Analyze the competitor's features</h3>
+        <p class="text-base text-[#020202] leading-relaxed mb-6">
+          This is the full-screen mode from the examples.
+        </p>
+
+        <!-- Gallery type comparison -->
+        <div class="grid grid-cols-3 gap-3 mb-10">
+          {[
+            { label: "Booking", type: "Mosaic" },
+            { label: "Amazon", type: "Carousel" },
+            { label: "Agoda", type: "Film strip" },
+          ].map((item) => (
+            <div class="bg-[#f2f2f2] rounded-xl overflow-hidden">
+              <div class="bg-[#34495e] aspect-[9/14] flex flex-col items-center justify-center gap-2 p-4">
+                <div class="w-full h-3 bg-white/20 rounded"></div>
+                <div class="w-full h-3 bg-white/20 rounded"></div>
+                <div class="w-3/4 h-3 bg-white/20 rounded self-start"></div>
+              </div>
+              <div class="p-3">
+                <p class="text-xs font-bold text-[#020202]">{item.label}</p>
+                <p class="text-xs text-[#666]">{item.type}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p class="text-base text-[#020202] leading-relaxed mb-6">
+          Many competitors implemented filter or sorting method. Here I curated the top three filter designs:
+        </p>
+        <div class="grid grid-cols-3 gap-3">
+          {[
+            { label: "Booking", type: "Two grid" },
+            { label: "Agoda", type: "Mix grid" },
+            { label: "Traveloka", type: "Single row" },
+          ].map((item) => (
+            <div class="bg-[#f2f2f2] rounded-xl overflow-hidden">
+              <div class="bg-[#2c3e50] aspect-[9/14] flex flex-col items-center justify-center gap-2 p-4">
+                <div class="w-full h-3 bg-white/20 rounded"></div>
+                <div class="w-full h-3 bg-white/20 rounded"></div>
+                <div class="w-3/4 h-3 bg-white/20 rounded self-start"></div>
+              </div>
+              <div class="p-3">
+                <p class="text-xs font-bold text-[#020202]">{item.label}</p>
+                <p class="text-xs text-[#666]">{item.type}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONSISTENT DESIGN ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-16 lg:py-20 bg-[#f9f9f9]">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-bold text-[24px] lg:text-[28px] text-[#020202] mb-2">Create the consistent design</h2>
+        <p class="text-primary font-semibold text-base mb-6">How did we create the same interaction pattern across all mobile devices?</p>
+
+        <h3 class="font-bold text-[20px] text-[#020202] mb-2">Button consistency</h3>
+        <p class="text-base text-[#020202] leading-relaxed mb-4">How did we create the button consistency across all mobile devices?</p>
+        <div class="space-y-3 text-base text-[#020202] leading-relaxed">
+          <p>iOS and Android show different button. Our goal was to maintain the button consistency across iOS and Android platforms.</p>
+          <p>This carousel shows only 4 images. How could we convey to users that the carousel contains more than 4 images?</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── DESIGN PHASE – 3 VARIANTS ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-16 lg:py-20">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-primary font-bold text-[20px] mb-1">Design phase</p>
+        <h2 class="font-bold text-[24px] lg:text-[28px] text-[#020202] mb-8">The video prototypes to test to the users</h2>
+        <div class="space-y-10">
+          {variants.map((v, i) => (
+            <div class="flex flex-col sm:flex-row gap-6 items-start">
+              <div class="shrink-0 rounded-[15px] overflow-hidden shadow-lg w-full sm:w-[160px]">
+                <img
+                  src={heroImages[i % heroImages.length].src}
+                  alt={`${v.label} prototype`}
+                  class="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex-1">
+                <p class="font-bold text-primary text-base mb-2">{v.label}</p>
+                <p class="text-base text-[#020202] leading-relaxed">{v.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PDP GALLERY SECTIONS ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-16 lg:py-20 bg-[#f9f9f9]">
+      <div class="max-w-3xl mx-auto space-y-12">
+
+        <div>
+          <h2 class="font-bold text-[24px] lg:text-[28px] text-[#020202] mb-4">PDP Gallery View</h2>
+          <div class="space-y-3 text-base text-[#020202] leading-relaxed">
+            <p>In both V1 and V2, the icons performed effectively, with users encountering no issues. While V1 directly signified the number of images available, V2 provided users with a preview of what they possibly see.</p>
+            <p>Carousel dots worked perfectly with the swipe functionality. Users understood and knew how to navigate it. They could swipe the image left and right seamlessly without using an arrow.</p>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-bold text-[24px] lg:text-[28px] text-[#020202] mb-4">Full screen / lightbox view</h2>
+          <div class="space-y-3 text-base text-[#020202] leading-relaxed">
+            <p>What should the full-screen mode look like? How could we combine or optimize the design for both devices?</p>
+            <p>This page has a swipe feature. However, the visual doesn't show that. How did we successfully communicate to travelers that the swipe feature exists?</p>
+            <p>Having a description for each image is a perfect idea! But, the position might need some adjustment. What if we position it directly beneath the image?</p>
+            <p>We implemented the rule of thirds as our guideline. According to the rule, we will get better compositions by positioning key elements along the gridlines.</p>
+            <p>Although users understood that 1/25 means 25 pictures, the icon was not working. The icon didn't tell users it would direct them to the grid view.</p>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-bold text-[24px] lg:text-[28px] text-[#020202] mb-4">Grid view</h2>
+          <div class="space-y-3 text-base text-[#020202] leading-relaxed">
+            <p>V1 and V3 have the same number icon, giving users an idea of how many pictures are available. However, users ignored this. Question was: Should we keep this feature or remove it?</p>
+            <p>Many users ignored this icon, though it can serve as a direction to the grid view in specific scenarios without going back to PDP.</p>
+            <p>The phone-tilting idea worked in some ways. However, users didn't want to get more hassle by turning their phone to view the full-screen mode. While users disliked being compelled to tilt, they appreciated the concept when it was optional, as it allowed them to view larger images.</p>
+            <p>V1, V2, and V3 navigation bars performed as intended. Users didn't show a distinct preference for either, as both seemed to meet their needs effectively. Given the results, we preferred to choose V2 or V3 option, as it aligned with EDGS pattern.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── WHAT'S NEXT – PRODUCTION TEST ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-16 lg:py-20">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-bold text-[24px] lg:text-[28px] text-[#020202] mb-6">What's next step? Apply what we learned.</h2>
+
+        <div class="grid sm:grid-cols-2 gap-6 mb-10">
+          <div class="bg-[#f9f9f9] rounded-2xl overflow-hidden">
+            <div class="flex gap-2 p-4">
+              <div class="flex-1 rounded-xl overflow-hidden shadow-sm">
+                <img src={heroImages[0].src} alt="Android thumbnail view" class="w-full h-auto object-cover" loading="lazy" />
+              </div>
+              <div class="flex-1 rounded-xl overflow-hidden shadow-sm">
+                <img src={heroImages[1].src} alt="Android full gallery" class="w-full h-auto object-cover" loading="lazy" />
+              </div>
+            </div>
+            <div class="px-4 pb-4">
+              <p class="font-bold text-[#020202] text-sm mb-1">Production test control – Android</p>
+              <p class="text-xs text-[#666]">Thumbnail view → Full gallery</p>
+            </div>
+          </div>
+          <div class="bg-[#f9f9f9] rounded-2xl overflow-hidden">
+            <div class="flex gap-2 p-4">
+              <div class="flex-1 rounded-xl overflow-hidden shadow-sm">
+                <img src={heroImages[2].src} alt="iOS current experience" class="w-full h-auto object-cover" loading="lazy" />
+              </div>
+              <div class="flex-1 rounded-xl overflow-hidden shadow-sm">
+                <img src={heroImages[3].src} alt="iOS tap picture" class="w-full h-auto object-cover" loading="lazy" />
+              </div>
+            </div>
+            <div class="px-4 pb-4">
+              <p class="font-bold text-[#020202] text-sm mb-1">Production test control – iOS</p>
+              <p class="text-xs text-[#666]">Current experience → Tap on the picture</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-[20px] text-[#020202] mb-4">Result – User flows V1, V2, and V3 interactions</h3>
+        <p class="text-base text-[#020202] leading-relaxed mb-6">
+          There wasn't much interaction in the full screen view. However, users could navigate the full screen feature with ease.
+        </p>
+        <p class="text-base text-[#020202] leading-relaxed">
+          We chose this design pattern as users didn't often use a full screen feature as we expected. The second important thing is grid view after the PDP native gallery. With that, we created a single tap to lead users to grid view, displaying more images.
+        </p>
+
+        <div class="mt-8">
+          <h3 class="font-bold text-[20px] text-[#020202] mb-4">What's next for list and grid view? Apply what we learned.</h3>
+          <div class="grid sm:grid-cols-2 gap-4 mb-6">
+            <div class="bg-[#f2f2f2] rounded-xl p-5">
+              <p class="font-bold text-primary mb-1 text-sm">OPTION 1 – Number icon</p>
+              <p class="text-sm text-[#020202] leading-relaxed">The advantage of this is that travelers will know that 25 images will appear after clicking this button.</p>
+            </div>
+            <div class="bg-[#f2f2f2] rounded-xl p-5">
+              <p class="font-bold text-primary mb-1 text-sm">OPTION 2 – Grid view icon</p>
+              <p class="text-sm text-[#020202] leading-relaxed">The advantage of this is that this icon will direct users to gallery view directly as this icon is more commonly being used.</p>
+            </div>
+          </div>
+          <div class="space-y-3 text-base text-[#020202] leading-relaxed">
+            <p>We used grid icon in the list view to display the grid view gallery.</p>
+            <p><strong>List view:</strong> Provides larger and more detailed view of images. Includes description for each image.</p>
+            <p><strong>Grid view:</strong> Enables users to scroll faster and at the same, skim through images.</p>
+            <p>We replaced the carousel dot with a picture count icon. Despite this change, users still understood that the gallery can be swiped (for both portrait and landscape views).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FINAL RESULT ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-16 lg:py-24 bg-[#f2f2f2]">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-bold text-[24px] lg:text-[28px] text-[#020202] mb-8">Final Result</h2>
+        <div class="inline-block bg-white rounded-2xl px-12 py-10 shadow-md mb-8">
+          <p class="text-5xl lg:text-6xl font-bold text-primary mb-2">+8%</p>
+          <p class="text-base font-medium text-[#020202]">Interaction rate increase</p>
+        </div>
+        <p class="text-base lg:text-[18px] text-[#020202] leading-relaxed">
+          Following the test, we observed an <strong>8% increase in interaction rate</strong> and achieved twice the target Conversion Rate Value (CVR). Specific numbers remain undisclosed.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── WHAT'S NEXT ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-16 lg:py-20">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-bold text-[24px] lg:text-[28px] text-[#020202] mb-4">What's next move?</h2>
+        <div class="space-y-4 text-base lg:text-[18px] text-[#020202] leading-relaxed">
+          <p>
+            Following the success of our native photo gallery, we studied it even further. We finally added the micro-interactions and enlarged the image. Below was our live results with the complete live video.
+          </p>
+          <p class="text-sm italic text-[#666666]">
+            Due to the Non-Disclosure Agreement, I can't display the complete live visual. However, this is the momentum to create better design and features for a better experience.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
 </Layout>

@@ -1,13 +1,345 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const projectImages = [
+  { src: "https://www.figma.com/api/mcp/asset/c6df84b3-e3de-4bb0-9922-528ad95bf6a3", alt: "Design System screenshot 1" },
+  { src: "https://www.figma.com/api/mcp/asset/7ec1da3f-71f9-4168-9616-2bb8a647774a", alt: "Design System screenshot 2" },
+  { src: "https://www.figma.com/api/mcp/asset/315ba867-6f07-4b8b-a452-59d6c9616b6d", alt: "Design System screenshot 3" },
+];
 ---
+
 <Layout title="Design Systems in Expedia – Evan Luputra">
-  <div class="max-w-3xl mx-auto px-5 py-20">
-    <a href="/#projects" class="text-primary text-sm font-medium hover:underline">← Back to Projects</a>
-    <h1 class="font-bold text-4xl text-[#020202] mt-6 mb-2">Design Systems in Expedia</h1>
-    <p class="text-primary font-semibold mb-6">Senior UX Designer @ Expedia</p>
-    <p class="text-base text-[#020202] leading-relaxed">
-      Generated design system for three teams across Expedia Group within three years and established the governance around it.
-    </p>
-  </div>
+  <Navbar />
+
+  <main class="bg-white">
+
+    <!-- Back -->
+    <div class="px-5 sm:px-10 lg:px-[120px] pt-10">
+      <a href="/#projects" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
+        ← Back to Projects
+      </a>
+    </div>
+
+    <!-- ── HERO ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] pt-10 pb-10">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-primary mb-3">Senior UX Designer @ Expedia</p>
+        <h1 class="font-bold text-[36px] sm:text-[48px] lg:text-[60px] leading-tight text-[#020202] mb-5">
+          Design Systems in Expedia
+        </h1>
+        <p class="text-base sm:text-lg lg:text-[20px] leading-relaxed text-[#020202]">
+          Generated design system for three teams across Expedia Group within three years and established the governance around it.
+        </p>
+      </div>
+
+      <!-- Project images -->
+      <div class="mt-10 grid sm:grid-cols-2 gap-4 max-w-5xl">
+        <div class="rounded-2xl overflow-hidden shadow-lg">
+          <img src={projectImages[0].src} alt={projectImages[0].alt} class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-lg">
+          <img src={projectImages[1].src} alt={projectImages[1].alt} class="w-full h-full object-cover" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MEDIA TEAM ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-16 lg:py-20 bg-[#f9f9f9]">
+      <div class="max-w-3xl">
+        <p class="text-primary font-bold text-[20px] mb-2">Media Team</p>
+        <h2 class="font-bold text-[22px] lg:text-[26px] text-[#020202] mb-6 leading-snug">
+          How could I create a new design system for the Media team so other teams can also easily understand the source of products without consulting with it?
+        </h2>
+        <div class="space-y-4 text-base lg:text-[18px] text-[#020202] leading-relaxed">
+          <p>
+            During my time at the Media project, we needed a dedicated design system for the ads team, especially for other teams to understand the source of product without needing to consult the design team. Additionally, we had to make it easy to understand and maintain for the non-Melo team deadlines, so I collaborated with cross-functional teams.
+          </p>
+          <p>I built the design system for four teams:</p>
+          <ul class="space-y-2 pl-4">
+            <li class="flex gap-3"><span class="mt-2 shrink-0 w-2 h-2 rounded-full bg-primary"></span><span>Guidelines — Design system for the product teams and engineers to learn from.</span></li>
+            <li class="flex gap-3"><span class="mt-2 shrink-0 w-2 h-2 rounded-full bg-primary"></span><span>Component library — Master component for the product and marketing teams.</span></li>
+            <li class="flex gap-3"><span class="mt-2 shrink-0 w-2 h-2 rounded-full bg-primary"></span><span>Marketing system — for product managers and designers to learn more about product scalability.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Screenshots row -->
+      <div class="mt-10 max-w-5xl">
+        <div class="grid sm:grid-cols-3 gap-4">
+          {projectImages.map((img) => (
+            <div class="rounded-xl overflow-hidden shadow-md">
+              <img src={img.src} alt={img.alt} class="w-full h-auto object-cover" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── NDA NOTICE ── -->
+    <section class="mx-5 sm:mx-10 lg:mx-[120px] my-4">
+      <div class="bg-[#2c3e50] text-white rounded-2xl px-8 py-6 text-center">
+        <p class="text-base lg:text-[18px] font-medium leading-relaxed">
+          Due to the Non-Disclosure Agreement, I can't display any design system for the Melo team. I can only provide you with some parts of it.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── HOW DID I CREATE FOR META DESIGNERS ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-16 lg:py-20">
+      <div class="max-w-3xl">
+        <h2 class="font-bold text-[22px] lg:text-[26px] text-[#020202] mb-6 leading-snug">
+          How did I create a design system for Meta designers?
+        </h2>
+        <div class="space-y-4 text-base lg:text-[18px] text-[#020202] leading-relaxed">
+          <p>
+            Availability of the design system is something which many designers worry about. The typographic design system document wasn't published at the time and the interactions document needed to be updated for the new Melo deadlines. Furthermore, this was challenging for the non-design team to understand — they would have to wait.
+          </p>
+          <p>
+            As a final result, I added the naming convention to fonts and published components.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── HOW DID I CREATE FOR PRODUCT MANAGERS ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-16 lg:py-20 bg-[#f9f9f9]">
+      <div class="max-w-3xl">
+        <h2 class="font-bold text-[22px] lg:text-[26px] text-[#020202] mb-6 leading-snug">
+          How did I create the design system for product managers and designers from different teams?
+        </h2>
+        <div class="space-y-4 text-base lg:text-[18px] text-[#020202] leading-relaxed">
+          <p>
+            Product managers mostly used Jira to manage tasks. We enabled them to tag their work systematically to our design system, so they could understand what comes when they hear "NewsFeed" or "NewCard". They often other often knew less about product availability when other teams updated things.
+          </p>
+          <p>
+            This was quite challenging.
+          </p>
+        </div>
+
+        <div class="mt-8">
+          <h3 class="font-bold text-[20px] text-[#020202] mb-4">How did I solve the issue?</h3>
+          <div class="space-y-4 text-base lg:text-[18px] text-[#020202] leading-relaxed">
+            <p>
+              As a result, the efficiency improved significantly. Even four years after I left Expedia, the design system is still being used and thriving. The governance approach we put in place has kept the design system consistent and up-to-date.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <h3 class="font-bold text-[20px] text-[#020202] mb-3">Lodging team</h3>
+          <p class="text-base lg:text-[18px] text-[#020202] leading-relaxed mb-4">
+            How would I craft a new design system for 100+ designers and implement effective governance around it?
+          </p>
+          <p class="text-base text-[#020202] leading-relaxed mb-4">
+            The lodging team is one of the largest priority groups in Expedia. The team was growing rapidly in terms of size — on roles, resources, and software. I joined the lodging team to take the initiative.
+          </p>
+          <p class="font-semibold text-[#020202] mb-3">How would I contribute to this team?</p>
+          <ul class="space-y-2">
+            <li class="flex gap-3 text-base text-[#020202] leading-relaxed">
+              <span class="mt-2 shrink-0 w-2 h-2 rounded-full bg-primary"></span>
+              <span>Bridging the gap to one of the biggest priority areas and team had many types of users.</span>
+            </li>
+            <li class="flex gap-3 text-base text-[#020202] leading-relaxed">
+              <span class="mt-2 shrink-0 w-2 h-2 rounded-full bg-primary"></span>
+              <span>Designers outside the lodging team.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WHAT DID EACH USER GROUP NEED ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-16 lg:py-20">
+      <div class="max-w-3xl">
+        <h2 class="font-bold text-[22px] lg:text-[26px] text-[#020202] mb-8">What did each user group need?</h2>
+
+        <div class="space-y-8">
+          <div>
+            <p class="font-bold text-[#020202] mb-3">Lodging designers</p>
+            <p class="text-base text-[#020202] leading-relaxed">
+              They needed a scalable and flexible source lens, which allowed them to understand and apply the system easily.
+            </p>
+          </div>
+          <div>
+            <p class="font-bold text-[#020202] mb-3">Other teams</p>
+            <div class="space-y-2 text-base text-[#020202] leading-relaxed">
+              <p>They needed to contribute to the design system and modify code. So, we needed to let non-lodging teams get access to the source.</p>
+            </div>
+          </div>
+          <div>
+            <p class="font-bold text-[#020202] mb-3">Product tables</p>
+            <p class="text-base text-[#020202] leading-relaxed">
+              Product tables mainly used Jira to manage tasks. We enabled them to tag their work systematically and enable them to use our components directly.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTRIBUTION FLOW (DARK) ── -->
+    <section class="bg-[#1a1a2e] py-16 lg:py-20 px-5 sm:px-10 lg:px-[120px]">
+      <div class="max-w-5xl mx-auto">
+        <p class="text-white text-sm text-center mb-10 opacity-70">
+          Figma introduced a new feature called branching and merging. With this, we could create a governance framework that allows anyone to contribute to the design system without overwriting others' work. The concept is similar to how GitHub works.
+        </p>
+
+        <!-- Flow diagram -->
+        <div class="flex flex-col lg:flex-row gap-10 items-start justify-center">
+
+          <!-- Left annotations -->
+          <div class="flex flex-col gap-8 lg:w-[220px] text-white text-sm">
+            <div class="flex items-start gap-3">
+              <div class="shrink-0 w-2 h-2 mt-1.5 rounded-full bg-primary"></div>
+              <p>Designers only click <strong>Update</strong> button to merge the branch</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="shrink-0 w-2 h-2 mt-1.5 rounded-full bg-primary"></div>
+              <p>Content writer edits the content</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="shrink-0 w-2 h-2 mt-1.5 rounded-full bg-primary"></div>
+              <p>Designers update their components</p>
+            </div>
+          </div>
+
+          <!-- Diagram -->
+          <div class="flex-1 flex flex-col items-center gap-6">
+            <!-- Row 1 -->
+            <div class="flex items-center gap-4">
+              <div class="bg-[#5957d0] text-white rounded-xl px-6 py-4 text-sm font-semibold text-center min-w-[120px]">
+                Source view
+              </div>
+              <div class="text-white text-lg">→</div>
+              <div class="bg-[#e91e8c] text-white rounded-xl px-6 py-4 text-sm font-semibold text-center min-w-[120px]">
+                ID designers
+              </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="flex items-center gap-4">
+              <div class="bg-[#ff9800] text-white rounded-xl px-6 py-4 text-sm font-semibold text-center min-w-[120px]">
+                Content Pattern
+              </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="flex items-center gap-4">
+              <div class="bg-[#4caf50] text-white rounded-xl px-6 py-4 text-sm font-semibold text-center min-w-[120px]">
+                Components
+              </div>
+              <div class="text-white text-lg">→</div>
+              <div class="bg-[#5957d0] text-white rounded-xl px-6 py-4 text-sm font-semibold text-center min-w-[160px]">
+                Designers works on project
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WHAT WAS THE IDEA ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-16 lg:py-20 bg-[#f9f9f9]">
+      <div class="max-w-3xl">
+        <h2 class="font-bold text-[22px] lg:text-[26px] text-[#020202] mb-6 leading-snug">
+          What was the idea?
+        </h2>
+        <div class="space-y-4 text-base lg:text-[18px] text-[#020202] leading-relaxed">
+          <p>
+            Designers work on a project, then creates a branch. The person who manages the existing component (or the merger manager) can review the proposed changes.
+          </p>
+          <p>
+            Source view only allows specific individuals to manage it unless there is a need to add specific components.
+          </p>
+        </div>
+
+        <div class="mt-8">
+          <p class="font-bold text-[#020202] mb-3">Lodging team</p>
+          <p class="text-base text-[#020202] leading-relaxed">
+            We successfully created a lodging source view that made the team more comfortable and self-efficient. Furthermore we implemented a consistent template-based system that helped designers from different teams to access and maintain the design system — making it easier to update and scale without unnecessary effort.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── RESULT ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-16 lg:py-24 bg-[#f2f2f2]">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-bold text-[24px] lg:text-[28px] text-[#020202] mb-8">Result</h2>
+        <div class="inline-block bg-white rounded-2xl px-12 py-10 shadow-md mb-8">
+          <p class="text-5xl lg:text-6xl font-bold text-primary mb-2">3×</p>
+          <p class="text-base font-medium text-[#020202]">Teams served within 3 years</p>
+        </div>
+        <p class="text-base lg:text-[18px] text-[#020202] leading-relaxed">
+          Improved with my contributions to previous teams by managers well with the lodging design system.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── CHECKMARK TEAM ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-16 lg:py-20">
+      <div class="max-w-3xl">
+        <p class="text-primary font-bold text-[20px] mb-2">Checkmark team</p>
+        <h2 class="font-bold text-[22px] lg:text-[26px] text-[#020202] mb-6 leading-snug">
+          How would I create a comprehensive governance source view for the checkmark team?
+        </h2>
+        <div class="space-y-4 text-base lg:text-[18px] text-[#020202] leading-relaxed">
+          <p>
+            I assumed there would be two types of users, but the checkmark team is different from the lodging team.
+          </p>
+          <p>
+            I then assigned to find out that the designers in the checkmark team usually maintained and built their component on their own. This was challenging — it kept it maintained in a way that it required the designer to check what others did to ensure that no one created the entire design system.
+          </p>
+        </div>
+
+        <div class="mt-8">
+          <h3 class="font-bold text-[20px] text-[#020202] mb-4">How did we approach this problem?</h3>
+          <div class="space-y-3 text-base text-[#020202] leading-relaxed">
+            <p>Identified this very issue the designers encountered and the naming convention.</p>
+            <p>The first step was to create a naming standard — one that helps the designer understand the hierarchy of the design system.</p>
+          </div>
+          <ul class="mt-4 space-y-2">
+            {[
+              "Normalized the naming system — Created a standard that is easier to know the hierarchy.",
+              "Created a template that all designers agreed on to use in terms of the design system.",
+              "Took only one source of both to reconciling design tokens from different components that kept it maintained in one source of both.",
+            ].map((item) => (
+              <li class="flex gap-3 text-base text-[#020202] leading-relaxed">
+                <span class="mt-2 shrink-0 w-2 h-2 rounded-full bg-primary"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FINAL RESULT ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-16 lg:py-20 bg-[#f9f9f9]">
+      <div class="max-w-3xl">
+        <h2 class="font-bold text-[22px] lg:text-[26px] text-[#020202] mb-6">Result</h2>
+        <div class="space-y-4 text-base lg:text-[18px] text-[#020202] leading-relaxed">
+          <p>
+            I created a template system with the most updated source views, enabling everyone to understand the design system.
+          </p>
+          <p>
+            The template rates team's productivity significantly by managing all 100+ designers. Furthermore, this proved the concept that a well-governed design system differentiated in impact.
+          </p>
+        </div>
+
+        <!-- Screenshot grid -->
+        <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4">
+          {projectImages.map((img) => (
+            <div class="rounded-xl overflow-hidden shadow-md aspect-video">
+              <img src={img.src} alt={img.alt} class="w-full h-full object-cover" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
 </Layout>
