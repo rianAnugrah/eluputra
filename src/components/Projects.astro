@@ -2,6 +2,7 @@
 const projects = [
   {
     title: "Native Photo Gallery",
+    slug: "native-photo-gallery",
     role: "Senior UX Designer @ Expedia",
     description: "Redesigned the entire flow of Gallery of native photo of lodging and successfully increased the",
     highlight: "interaction rate by 8%",
@@ -17,6 +18,7 @@ const projects = [
   },
   {
     title: "Design Systems in Expedia",
+    slug: "design-systems-expedia",
     role: "Senior UX Designer @ Expedia",
     description: "Generated design system for three teams across Expedia Group within three years and established the governance around it.",
     highlight: null,
@@ -31,6 +33,7 @@ const projects = [
   },
   {
     title: "Media Solution Ads Project",
+    slug: "media-solution-ads",
     role: "Senior UX Designer @ Expedia",
     description: "Redesigned the Expedia ads design and earned the CTR increase and revenue growth of approximately",
     highlight: "US$8.5 million",
@@ -48,7 +51,7 @@ const projects = [
 <section id="projects" class="px-5 sm:px-10 lg:px-[80px] py-12 lg:py-16">
   <div class="max-w-7xl mx-auto flex flex-col gap-16 lg:gap-24">
     {projects.map((project, i) => (
-      <div class="flex flex-col gap-6 lg:gap-8">
+      <a href={`/projects/${project.slug}`} class="flex flex-col gap-6 lg:gap-8 group cursor-pointer">
         <!-- Project card image area -->
         <div
           class="w-full rounded-xl overflow-hidden relative transition-shadow duration-300 hover:shadow-2xl"
@@ -124,7 +127,7 @@ const projects = [
             {project.descriptionEnd}
           </p>
         </div>
-      </div>
+      </a>
     ))}
   </div>
 </section>
