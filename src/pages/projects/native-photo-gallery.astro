@@ -134,17 +134,17 @@ const variants = [
           </p>
         </div>
         <!-- Reuse gallery screens to illustrate Android flow -->
-        <div class="flex gap-4 items-start">
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-0 sm:flex sm:items-start">
           <div class="flex-1 rounded-[15px] overflow-hidden shadow-lg">
             <img src={heroImages[0].src} alt="Android – property detail page" class="w-full h-auto object-cover" loading="lazy" />
             <p class="text-xs text-center text-[#666] py-2 bg-[#f2f2f2]">Property detail page</p>
           </div>
-          <div class="text-2xl text-[#aaa] self-center">→</div>
-          <div class="flex-1 rounded-[15px] overflow-hidden shadow-lg mt-8">
+          <div class="hidden sm:flex text-2xl text-[#aaa] self-center px-2">→</div>
+          <div class="flex-1 rounded-[15px] overflow-hidden shadow-lg sm:mt-8">
             <img src={heroImages[1].src} alt="Android – thumbnail view" class="w-full h-auto object-cover" loading="lazy" />
             <p class="text-xs text-center text-[#666] py-2 bg-[#f2f2f2]">Thumbnail view</p>
           </div>
-          <div class="text-2xl text-[#aaa] self-center">→</div>
+          <div class="hidden sm:flex text-2xl text-[#aaa] self-center px-2">→</div>
           <div class="flex-1 rounded-[15px] overflow-hidden shadow-lg">
             <img src={heroImages[2].src} alt="Android – full gallery" class="w-full h-auto object-cover" loading="lazy" />
             <p class="text-xs text-center text-[#666] py-2 bg-[#f2f2f2]">Full gallery</p>
@@ -163,13 +163,13 @@ const variants = [
             The app neither had a grid view nor a swipe feature.
           </p>
         </div>
-        <div class="flex gap-4 items-start">
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-0 sm:items-start">
           <div class="flex-1 rounded-[15px] overflow-hidden shadow-lg">
             <img src={heroImages[0].src} alt="iOS – tap on the picture" class="w-full h-auto object-cover" loading="lazy" />
             <p class="text-xs text-center text-[#666] py-2 bg-[#f2f2f2]">Tap on the picture</p>
           </div>
-          <div class="text-2xl text-[#aaa] self-center">→</div>
-          <div class="flex-1 rounded-[15px] overflow-hidden shadow-lg mt-8">
+          <div class="hidden sm:flex text-2xl text-[#aaa] self-center px-4">→</div>
+          <div class="flex-1 rounded-[15px] overflow-hidden shadow-lg sm:mt-8">
             <img src={heroImages[3].src} alt="iOS – tap on the number icon" class="w-full h-auto object-cover" loading="lazy" />
             <p class="text-xs text-center text-[#666] py-2 bg-[#f2f2f2]">Tap on the number icon</p>
           </div>

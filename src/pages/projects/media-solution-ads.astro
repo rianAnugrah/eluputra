@@ -1,14 +1,209 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const heroImage = "https://www.figma.com/api/mcp/asset/a5d8dece-c993-45c2-815a-3203f504612b";
+const adsImage  = "https://www.figma.com/api/mcp/asset/0e61962b-596b-4972-846c-789a7ef22962";
+
+const meta = [
+  { label: "Themes",   value: "Interaction Design" },
+  { label: "Team",     value: "2 UX Designers, 5+ PMs & Myself" },
+  { label: "Tools",    value: "Figma, Trello" },
+  { label: "Timeline", value: "3 months" },
+];
 ---
-<Layout title="Media Solution Ads – Evan Luputra">
-  <div class="max-w-3xl mx-auto px-5 py-20">
-    <a href="/#projects" class="text-primary text-sm font-medium hover:underline">← Back to Projects</a>
-    <h1 class="font-bold text-4xl text-[#020202] mt-6 mb-2">Media Solution Ads Project</h1>
-    <p class="text-primary font-semibold mb-6">Senior UX Designer @ Expedia</p>
-    <p class="text-base text-[#020202] leading-relaxed">
-      Redesigned the Expedia ads design and earned the CTR increase and revenue growth of approximately
-      <strong>US$8.5 million</strong>.
-    </p>
-  </div>
+
+<Layout title="Media Solution Ads Project – Evan Luputra">
+  <Navbar />
+
+  <main class="bg-white">
+
+    <!-- Back -->
+    <div class="px-5 sm:px-10 lg:px-[120px] pt-10">
+      <a href="/#projects" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
+        ← Back to Projects
+      </a>
+    </div>
+
+    <!-- ── HERO ── -->
+    <section class="pt-10 pb-10 text-center px-5 sm:px-10 lg:px-[120px]">
+      <div class="max-w-2xl mx-auto mb-8">
+        <h1 class="font-bold text-[32px] sm:text-[42px] lg:text-[48px] leading-tight text-[#020202] mb-4">
+          Media Solution Ads Project
+        </h1>
+        <p class="text-base sm:text-lg text-[#020202] leading-relaxed">
+          Redesigned the Expedia ads design and earned the CTR increase and
+          revenue growth of approximately <strong>US$8.5 million</strong>.
+        </p>
+      </div>
+
+      <!-- Laptop mockup image -->
+      <div class="max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-xl">
+        <img
+          src={heroImage}
+          alt="Expedia homepage with native ads"
+          class="w-full h-auto object-cover"
+          loading="eager"
+        />
+      </div>
+    </section>
+
+    <!-- ── PROJECT META ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] pb-16">
+      <div class="max-w-3xl mx-auto border-t border-b border-[#e5e5e5] py-6 grid grid-cols-2 sm:grid-cols-4 gap-6">
+        {meta.map((m) => (
+          <div>
+            <p class="text-xs font-bold text-[#020202] uppercase tracking-wide mb-1">{m.label}</p>
+            <p class="text-sm text-[#444] leading-snug">{m.value}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ── INTRO ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-4 pb-16">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-primary font-bold text-sm uppercase tracking-widest mb-3">Intro</p>
+        <h2 class="font-bold text-[22px] lg:text-[28px] text-[#020202] mb-6 leading-snug">
+          Getting more click through rate in the home page ads is our main goal.
+        </h2>
+        <div class="space-y-4 text-base text-[#020202] leading-relaxed">
+          <p>
+            I joined the MeSo team at Expedia in 2020 and was responsible for creating ads relevant to Expedia's business goal to get more partners using the ads service. Currently, we have two types of ads: standard (that people usually see on the other website, and the partner creates it) and native ads (it is only being used by Expedia Group).
+          </p>
+          <p>
+            Due to the pandemic last year, ad demand was decreasing. Customers believed that ads were intrusive and not relevant to the main website. Our job was to figure out how to satisfy the customer and the partners with the relevant ads.
+          </p>
+        </div>
+
+        <!-- Native ads example screenshot -->
+        <div class="mt-8 rounded-xl overflow-hidden border border-[#e5e5e5] shadow-sm">
+          <img
+            src={adsImage}
+            alt="Example of Expedia native ads"
+            class="w-full h-auto object-cover"
+            loading="lazy"
+          />
+        </div>
+        <p class="mt-3 text-sm text-[#444] text-center">
+          <strong>Above</strong> – This is the example of the native ads.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── NDA BANNER ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-10">
+      <div class="bg-[#eeeef8] rounded-2xl px-8 py-8 text-center max-w-5xl mx-auto">
+        <p class="text-base text-[#020202] leading-relaxed">
+          Due to the <strong>Non-Disclosure Agreement</strong>, I can't display any ads that I
+          worked on. I can only provide you some parts of it.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── GOAL ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-12 pb-16">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-primary font-bold text-sm uppercase tracking-widest mb-3">Goal</p>
+        <h2 class="font-bold text-[22px] lg:text-[28px] text-[#020202] mb-6 leading-snug">
+          How might we create the relevant ads that would satisfy the partners and customers?
+        </h2>
+        <div class="space-y-4 text-base text-[#020202] leading-relaxed">
+          <p>
+            To address the revenue decline, we aimed to transition from standard to native ads, ensuring they integrated with the Expedia Design and Content Guidelines.
+          </p>
+          <p>
+            Before redesigning the ads, I conducted the research by asking the customers, what types of ads they would like to see on our website. I also analyzed the user's behavior and why they clicked certain ads. We iterated 3 complete cycles throughout the design phase based on the double-diamond approach.
+          </p>
+          <p>
+            Additionally, we conducted the A/B testing and chose the winning design, which led to a revenue boost of <strong>US$5M</strong>.
+          </p>
+        </div>
+
+        <!-- Ads design screenshots -->
+        <div class="mt-8 space-y-4">
+          <!-- Highlighted/winning ad design -->
+          <div class="rounded-xl overflow-hidden border-2 border-red-400 shadow-md">
+            <img
+              src={heroImage}
+              alt="Winning ad design – A/B test result"
+              class="w-full h-auto object-cover"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Two-column image grid -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="rounded-xl overflow-hidden shadow-sm border border-[#e5e5e5]">
+              <img
+                src={adsImage}
+                alt="Ad design variant A"
+                class="w-full h-auto object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="rounded-xl overflow-hidden shadow-sm border border-[#e5e5e5]">
+              <img
+                src={heroImage}
+                alt="Ad design variant B"
+                class="w-full h-auto object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Second two-column row -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="rounded-xl overflow-hidden shadow-sm border border-[#e5e5e5]">
+              <img
+                src={adsImage}
+                alt="Ad design – full view"
+                class="w-full h-auto object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="rounded-xl overflow-hidden border-2 border-red-400 shadow-md">
+              <img
+                src={heroImage}
+                alt="Ad design – selected winning variant"
+                class="w-full h-auto object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── RESULT ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-16 lg:py-24 bg-[#f2f2f2]">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-bold text-[24px] lg:text-[28px] text-[#020202] mb-8">Final Result</h2>
+        <div class="flex flex-col sm:flex-row gap-6 justify-center max-w-xl mx-auto">
+          <div class="bg-white rounded-2xl px-10 py-8 shadow-md flex-1 text-center">
+            <p class="text-4xl lg:text-5xl font-bold text-primary mb-2">US$8.5M</p>
+            <p class="text-sm font-medium text-[#020202]">Revenue growth</p>
+          </div>
+          <div class="bg-white rounded-2xl px-10 py-8 shadow-md flex-1 text-center">
+            <p class="text-4xl lg:text-5xl font-bold text-primary mb-2">↑ CTR</p>
+            <p class="text-sm font-medium text-[#020202]">Click-through rate increase</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT BANNER ── -->
+    <section class="px-5 sm:px-10 lg:px-[120px] py-12">
+      <div class="bg-[#eeeef8] rounded-2xl px-8 py-10 text-center max-w-5xl mx-auto">
+        <p class="text-base text-[#020202] leading-relaxed">
+          If you would like to learn more what I have or am working on, please
+          don't hesitate to <a href="#contact" class="text-primary font-semibold hover:underline">contact me</a>.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
 </Layout>
